@@ -1,5 +1,5 @@
 # schoolapp/views.py
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student, Grade
 from .forms import StudentForm
 
@@ -21,3 +21,10 @@ def add_student(request):
     else:
         form = StudentForm()
     return render(request, 'add_student.html', {'form': form})
+
+def delete_student(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    if request.method == 'POST':
+        student.delete()
+        return redirect('students_list')
+    return render(request, 'delete_student.html', {'student': student})

@@ -1,0 +1,14 @@
+<!-- schoolapp/templates/delete_student.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Подтвердите удаление ученика</title>
+</head>
+<body>
+    <h2>Вы уверены, что хотите удалить ученика {{ student.first_name }} {{ student.last_name }}?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Да, удалить">
+    </form>
+</body>
+</html>
