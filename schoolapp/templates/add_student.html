@@ -1,18 +1,25 @@
+<!-- schoolapp/templates/add_student.html -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Добавление нового ученика</title>
+    <title>Добавление ученика</title>
 </head>
 <body>
-    <h1>Добавление нового ученика</h1>
-    <form method="post" action="{% url 'add_student' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Добавить ученика</button>
-    </form>
-    <a href="{% url 'students_list' %}">Вернуться к списку учеников</a>
+    <header>
+        <h1>Добавление ученика</h1>
+    </header>
+
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="add-button">Добавить ученика</button>
+        </form>
+    </div>
 </body>
 </html>

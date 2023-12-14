@@ -1,24 +1,30 @@
 <!-- schoolapp/templates/students_list.html -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Список учеников</title>
 </head>
 <body>
-    <h1>Список учеников</h1>
-  
-    <ul>
-        {% for student in students %}
-            <li>
-                {{ student.first_name }} {{ student.last_name }}
-                (<a href="{% url 'student_detail' student.id %}">Детали</a>)
-                (<a href="{% url 'delete_student' student.id %}">Удалить</a>)
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'add_student' %}">Добавить нового ученика</a>
+    <header>
+        <h1>Список учеников</h1>
+    </header>
+
+    <div class="container">
+        <ul>
+            {% for student in students %}
+                <li>
+                    {{ student.first_name }} {{ student.last_name }}
+                    <a href="{% url 'student_detail' student.id %}" class="details-button">Детали</a>
+                    <a href="{% url 'delete_student' student.id %}" class="delete-button">Удалить</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_student' %}" class="add-button">Добавить нового ученика</a>
+    </div>
 </body>
 </html>
