@@ -1,0 +1,24 @@
+<!-- schoolapp/templates/menu_list.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="menu">
+                <li><a href="{% url 'students_list' %}">Cтуденты</a></li>
+                <li><a href="{% url 'students_list' %}">Директор</a></li>
+                <!-- Добавьте другие пункты меню, если необходимо -->
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
+
+

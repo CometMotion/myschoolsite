@@ -3,6 +3,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student, Grade
 from .forms import StudentForm
 
+def menu_list(request):
+    menu = Student.objects.all()
+    return render(request, 'menu_list.html', {'menu': menu})
+
 def students_list(request):
     students = Student.objects.all()
     return render(request, 'students_list.html', {'students': students})
