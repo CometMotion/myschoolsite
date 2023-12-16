@@ -1,31 +1,28 @@
-<!-- schoolapp/templates/students_list.html -->
-
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список учеников</title>
-</head>
-<body>
-    <header>
-        <h2>Ученики</h2>
-    </header>
-
-    <div class="container">
-        <ul>
+{% block content %}
+    <h2>Список студентов</h2>
+    <a href="{% url 'create_student' %}"><button>Добавить ученика</button></a>
+    <table id="studentsTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Имя</th>
+                <th onclick="sortTable(1)">Фамилия</th>
+                <th onclick="sortTable(2)">Возраст</th>
+                <!-- Добавьте другие заголовки столбцов, если необходимо -->
+            </tr>
+        </thead>
+        <tbody>
             {% for student in students %}
-                <li>
-                    {{ student.first_name }} {{ student.last_name }}
-                    <a href="{% url 'student_detail' student.id %}" class="details-button">Детали</a>
-                    <a href="{% url 'delete_student' student.id %}" class="delete-button">Удалить</a>
-                </li>
+                <tr>
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.last_name }}</td>
+                    <td>{{ student.age }}</td>
+                    <!-- Вставьте другие поля студента, если необходимо -->
+                </tr>
             {% endfor %}
-        </ul>
-        <a href="{% url 'add_student' %}" class="add-button">Добавить нового ученика</a>
-    </div>
-</body>
-</html>
+        </tbody>
+    </table>
+    <script src="{% static 'js/sort-table.js' %}"></script>
+{% endblock %}

@@ -1,23 +1,19 @@
 /* static/css/styles.css */
 
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
 
 .navbar {
-    background-color: #3498db;
+    background-color:#ff5252; /* Цвет фона навигационной панели */
     padding: 10px 0;
 }
 
 .container {
-    width: 80%;
+    
+    width: 80%; /* Ширина контейнера для центрирования содержимого */
     margin: 0 auto;
 }
 
 .menu {
+    
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -25,24 +21,24 @@ body {
 }
 
 .menu li {
+    
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 20px; /* Расстояние между пунктами меню */
 }
 
 .menu a {
     text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
+    color: black;
+    font-size: 18px; /* Размер шрифта */
+    font-weight: bold; /* Полужирное начертание */
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .menu a:hover {
-    background-color: #555;
+    background-color: red; /* Цвет фона при наведении */
 }
-
 
 
 
